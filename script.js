@@ -29,8 +29,29 @@
 (function quine(){
     let src=`(${quine})()`
 
+    const myDiv = document.getElementById('mydiv');
+
     let hello=1092;
+    myDiv.innerHTML=src;
     
-    document.getElementById('mydiv').innerHTML=src;
-    
+    let font=new FontFace('pixelemulator','url(fonts/VT323-Regular.ttf)')
+    font.load().then((loadedFont)=>{
+        document.fonts.add(loadedFont)
+        document.querySelector('body').style.backgroundColor='black'
+
+        myDiv.style.fontFamily='pixelemulator'
+        myDiv.style.fontSize = '20px';
+        myDiv.style.color='yellow'
+        myDiv.style.width = '80%'; 
+        myDiv.style.overflow='visible'
+        myDiv.style.padding = '20px';
+        myDiv.style.textAlign = 'center'; 
+        myDiv.style.padding = '20px';
+
+        document.body.style.display = 'flex';
+        document.body.style.flexDirection = 'column'; 
+        document.body.style.alignItems = 'center';
+        document.body.style.justifyContent = 'center';
+        document.body.style.height = '100vh'; 
+    })
 })()
